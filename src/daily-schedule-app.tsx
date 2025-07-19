@@ -22,8 +22,11 @@ const DailyScheduleApp = () => {
     { id: 10, activity: "Short Break", startTime: "11:50", endTime: "12:00", color: "bg-orange-100 border-orange-300" },
     { id: 11, activity: "AI Comic Book", startTime: "12:00", endTime: "12:30", color: "bg-orange-100 border-orange-300" },
     { id: 12, activity: "Lunch Break", startTime: "12:30", endTime: "13:15", color: "bg-orange-100 border-orange-300" },
-    { id: 13, activity: "Jigsaw Activity", startTime: "13:15", endTime: "14:45", color: "bg-orange-100 border-orange-300" },
-    { id: 14, activity: "Concluding Event", startTime: "14:45", endTime: "15:00", color: "bg-orange-100 border-orange-300" }
+    { id: 13, activity: "Home Group", startTime: "13:15", endTime: "14:00", color: "bg-orange-100 border-orange-300" },
+    { id: 14, activity: "Break", startTime: "14:00", endTime: "14:15", color: "bg-orange-100 border-orange-300" },
+    { id: 15, activity: "Jigsaw Assessment", startTime: "14:15", endTime: "14:35", color: "bg-orange-100 border-orange-300" },
+    { id: 16, activity: "Closing Remarks", startTime: "14:35", endTime: "14:45", color: "bg-orange-100 border-orange-300" },
+    { id: 17, activity: "Concluding Event", startTime: "14:45", endTime: "15:00", color: "bg-orange-100 border-orange-300" }
   ];
 
   // Update time and countdown every second
@@ -126,11 +129,12 @@ const DailyScheduleApp = () => {
   const currentActivity = getCurrentActivity();
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
-      <div className="max-w-2xl mx-auto">
-        {/* Timer Header */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50">
+      {/* Fixed Timer Header */}
+      <div className="fixed top-0 left-0 right-0 bg-gray-50 p-4 z-10 shadow-sm">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Clock className="text-blue-600" size={32} />
               <div>
@@ -266,40 +270,52 @@ const DailyScheduleApp = () => {
             </div>
           )}
         </div>
+      </div>
+      </div>
 
-        {/* Schedule List */}
-        <div className="bg-white rounded-lg shadow-lg">
-          <div className="p-4 border-b flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-800">Agenda</h2>
-            <div className="flex space-x-2">
-              <button
-                onClick={selectPreviousActivity}
-                disabled={selectedActivityId === 1}
-                className={`flex items-center space-x-1 px-3 py-1 rounded text-sm font-medium ${
-                  selectedActivityId === 1 
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                    : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                }`}
-              >
-                <SkipBack size={16} />
-                <span>Previous</span>
-              </button>
-              <button
-                onClick={selectNextActivity}
-                disabled={selectedActivityId === schedule.length}
-                className={`flex items-center space-x-1 px-3 py-1 rounded text-sm font-medium ${
-                  selectedActivityId === schedule.length 
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                    : 'bg-green-100 text-green-700 hover:bg-green-200'
-                }`}
-              >
-                <span>Next</span>
-                <SkipForward size={16} />
-              </button>
+      {/* Fixed Agenda Header */}
+      <div className="fixed top-80 left-0 right-0 bg-gray-50 p-4 z-10 shadow-sm">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg">
+            <div className="p-4 border-b flex justify-between items-center">
+              <h2 className="text-xl font-semibold text-gray-800">Agenda</h2>
+              <div className="flex space-x-2">
+                <button
+                  onClick={selectPreviousActivity}
+                  disabled={selectedActivityId === 1}
+                  className={`flex items-center space-x-1 px-3 py-1 rounded text-sm font-medium ${
+                    selectedActivityId === 1 
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                      : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                  }`}
+                >
+                  <SkipBack size={16} />
+                  <span>Previous</span>
+                </button>
+                <button
+                  onClick={selectNextActivity}
+                  disabled={selectedActivityId === schedule.length}
+                  className={`flex items-center space-x-1 px-3 py-1 rounded text-sm font-medium ${
+                    selectedActivityId === schedule.length 
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                      : 'bg-green-100 text-green-700 hover:bg-green-200'
+                  }`}
+                >
+                  <span>Next</span>
+                  <SkipForward size={16} />
+                </button>
+              </div>
             </div>
           </div>
-          
-          <div className="p-4 space-y-3">
+        </div>
+      </div>
+
+      {/* Scrollable Content Area with top padding to account for both fixed headers */}
+      <div className="pt-[26rem] p-4">
+        <div className="max-w-2xl mx-auto">
+          {/* Schedule List */}
+          <div className="bg-white rounded-lg shadow-lg">
+            <div className="p-6 space-y-4 mt-4">
             {schedule.map((item) => {
               const isCurrent = selectedActivityId === item.id;
               const isPast = item.id < selectedActivityId;
@@ -369,6 +385,7 @@ const DailyScheduleApp = () => {
         
         <div className="text-center mt-6 text-gray-500 text-sm">
           Click on any activity to select it manually, or use Previous/Next buttons
+        </div>
         </div>
       </div>
     </div>
