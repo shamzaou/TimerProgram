@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Clock, Play, Pause, ChevronLeft, ChevronRight, SkipForward, SkipBack, Moon, Sun } from 'lucide-react';
 
 const DailyScheduleApp = () => {
