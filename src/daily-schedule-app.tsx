@@ -162,11 +162,6 @@ const DailyScheduleApp = () => {
                   <div className={`text-3xl font-mono font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
                     {formatTime(currentTime)}
                   </div>
-                  <div className={`text-lg font-mono mt-1 ${
-                    countdownSeconds <= 60 && isRunning ? 'text-red-600 animate-pulse' : 'text-blue-600'
-                  }`}>
-                    Countdown: {formatCountdownTime(countdownSeconds)}
-                  </div>
                   
                   {/* Progress Bar */}
                   <div className={`w-48 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full h-2 mt-2`}>
@@ -239,15 +234,15 @@ const DailyScheduleApp = () => {
                     </p>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className={`text-center ${
-                      countdownSeconds <= 60 && isRunning ? 'animate-pulse' : ''
+                    <div className={`text-center p-4 bg-red-50 border-2 border-red-500 rounded-xl ${
+                      countdownSeconds <= 60 && isRunning ? 'animate-pulse bg-red-100' : ''
                     }`}>
-                      <div className={`text-2xl font-mono font-bold ${
-                        countdownSeconds <= 60 && isRunning ? 'text-red-600' : 'text-green-600'
+                      <div className={`text-4xl font-mono font-bold text-red-600 ${
+                        countdownSeconds <= 60 && isRunning ? 'animate-pulse' : ''
                       }`}>
                         {formatCountdownTime(countdownSeconds)}
                       </div>
-                      <div className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>remaining</div>
+                      <div className="text-xs text-red-700 font-semibold">remaining</div>
                     </div>
                     <div className="flex space-x-1">
                       <button
