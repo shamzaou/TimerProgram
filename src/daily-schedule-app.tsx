@@ -12,22 +12,22 @@ const DailyScheduleApp = () => {
   // Jigsaw Activity Agenda from the provided images
   const schedule = [
     { id: 1, activity: "Welcoming", startTime: "09:00", endTime: "09:30", color: "bg-gray-100 border-gray-400" },
-    { id: 2, activity: "Kick-Off", startTime: "09:30", endTime: "09:45", color: "bg-orange-100 border-orange-300" },
-    { id: 3, activity: "Team Assignment & Break", startTime: "09:45", endTime: "10:00", color: "bg-orange-100 border-orange-300" },
-    { id: 4, activity: "Ice Breaker", startTime: "10:00", endTime: "10:15", color: "bg-orange-100 border-orange-300" },
-    { id: 5, activity: "Scavenger Hunt", startTime: "10:15", endTime: "10:45", color: "bg-orange-100 border-orange-300" },
-    { id: 6, activity: "Short Break", startTime: "10:45", endTime: "10:55", color: "bg-orange-100 border-orange-300" },
-    { id: 7, activity: "Individual Learning", startTime: "10:55", endTime: "11:15", color: "bg-gray-100 border-gray-400" },
-    { id: 8, activity: "Vocabulary Session", startTime: "11:15", endTime: "11:30", color: "bg-orange-100 border-orange-300" },
-    { id: 9, activity: "Peer to Peer Learning", startTime: "11:30", endTime: "11:50", color: "bg-orange-100 border-orange-300" },
-    { id: 10, activity: "Short Break", startTime: "11:50", endTime: "12:00", color: "bg-orange-100 border-orange-300" },
-    { id: 11, activity: "AI Comic Book", startTime: "12:00", endTime: "12:30", color: "bg-orange-100 border-orange-300" },
-    { id: 12, activity: "Lunch Break", startTime: "12:30", endTime: "13:15", color: "bg-orange-100 border-orange-300" },
-    { id: 13, activity: "Home Group", startTime: "13:15", endTime: "14:00", color: "bg-orange-100 border-orange-300" },
-    { id: 14, activity: "Break", startTime: "14:00", endTime: "14:15", color: "bg-orange-100 border-orange-300" },
-    { id: 15, activity: "Jigsaw Assessment", startTime: "14:15", endTime: "14:35", color: "bg-orange-100 border-orange-300" },
-    { id: 16, activity: "Closing Remarks", startTime: "14:35", endTime: "14:45", color: "bg-orange-100 border-orange-300" },
-    { id: 17, activity: "Concluding Event", startTime: "14:45", endTime: "15:00", color: "bg-orange-100 border-orange-300" }
+    { id: 2, activity: "Tour & Kick-Off", startTime: "09:30", endTime: "10:00", color: "bg-orange-100 border-orange-300" },
+    { id: 3, activity: "Team Assignment & Break", startTime: "10:00", endTime: "10:15", color: "bg-orange-100 border-orange-300" },
+    { id: 4, activity: "Ice Breaker", startTime: "10:15", endTime: "10:30", color: "bg-orange-100 border-orange-300" },
+    { id: 5, activity: "Scavenger Hunt", startTime: "10:30", endTime: "11:10", color: "bg-orange-100 border-orange-300" },
+    //{ id: 6, activity: "Short Break", startTime: "10:45", endTime: "10:55", color: "bg-orange-100 border-orange-300" },
+    { id: 6, activity: "Individual Learning", startTime: "11:10", endTime: "11:35", color: "bg-gray-100 border-gray-400" },
+    { id: 7, activity: "Vocabulary Session & Expert Group Assignment", startTime: "11:35", endTime: "12:00", color: "bg-orange-100 border-orange-300" },
+    { id: 8, activity: "Lunch Break", startTime: "12:00", endTime: "12:30", color: "bg-orange-100 border-orange-300" },
+    { id: 9, activity: "Peer to Peer Learning", startTime: "12:30", endTime: "12:55", color: "bg-orange-100 border-orange-300" },
+    { id: 10, activity: "AI Comic Book", startTime: "12:55", endTime: "01:25", color: "bg-orange-100 border-orange-300" },
+    { id: 11, activity: "Short Break", startTime: "01:25", endTime: "01:35", color: "bg-orange-100 border-orange-300" },
+    { id: 12, activity: "Home Group", startTime: "01:35", endTime: "02:15", color: "bg-orange-100 border-orange-300" },
+    //{ id: 14, activity: "Break", startTime: "14:00", endTime: "14:15", color: "bg-orange-100 border-orange-300" },
+    { id: 13, activity: "Jigsaw Assessment", startTime: "02:15", endTime: "02:30", color: "bg-orange-100 border-orange-300" },
+    //{ id: 16, activity: "Closing Remarks", startTime: "14:35", endTime: "14:45", color: "bg-orange-100 border-orange-300" },
+    { id: 14, activity: "Concluding Event", startTime: "02:30", endTime: "03:00", color: "bg-orange-100 border-orange-300" }
   ];
 
   // Update time and countdown every second
